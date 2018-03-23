@@ -19,10 +19,9 @@ function isBlob (value) {
       typeof value.slice === 'function'
 }
 
+// https://github.com/therealparmesh/object-to-formdata/issues/13
 function isFile (value) {
-  return isBlob(value) &&
-      typeof value.lastModified === 'number' &&
-      typeof value.name === 'string'
+  return value instanceof File
 }
 
 function isDate (value) {
